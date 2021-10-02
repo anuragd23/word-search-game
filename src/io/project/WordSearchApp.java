@@ -10,9 +10,9 @@ public class WordSearchApp {
 
 
         List<String> words = Arrays.asList("ONE", "TWO", "THREE");
-
-
-
+        Grid grid = new Grid(10);
+        grid.fillGrid(words);
+        grid.displayGrid();
 
     }
 }
