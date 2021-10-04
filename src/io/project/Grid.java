@@ -38,7 +38,7 @@ public class Grid {
             for(Coordinate coordinate: coordinates) {
                 int x = coordinate.x;
                 int y = coordinate.y;
-                if (y + word.length() < gridSize) {
+                if (doesFit(word, coordinate)) {
                     for (char c: word.toCharArray()) {
                         contents[x][y++] = c;
                     }
@@ -55,5 +55,15 @@ public class Grid {
             }
             System.out.println("");
         }
+    }
+
+    private boolean doesFit(String word, Coordinate coordinate) {
+        if (coordinate.y + word.length() < gridSize) {
+            for (int i = 0; i < word.length(); i++) {
+                if (contents[coordinate.x][coordinate.y + i] != '_') return false;
+            }
+            return true;
+        }
+        return false;
     }
 }
